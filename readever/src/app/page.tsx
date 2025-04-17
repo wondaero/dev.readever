@@ -1,7 +1,9 @@
 'use client';
 
 import Image from "next/image";
+// import React from 'react';
 import { useState, useMemo } from 'react';
+
 import { useQuery } from '@tanstack/react-query';
 
 import styled from 'styled-components';
@@ -25,25 +27,44 @@ const Main = styled.main`
   flex-direction: column;
 
   & > div{
+    padding-top: 50px;
     flex: 1;
     overflow-y: auto;
     background: linear-gradient(to bottom, midnightblue, #000);
   }
 `;
 
+const H2 = styled.h2`
+  margin: 0 auto 10px;
+  color: #fff;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  left: 25px;
+  background: #fff;
+  border-radius: 100px;
+  color: midnightblue;
+  padding: 5px 10px;
+  vertical-align: top;;
+  z-index: 2;
+  display: inline-block;
+  border: 1px solid midnightblue;
+  box-shadow: 0 0 8px #fff;
+  left: 50%;
+  transform: translateX(-100px);
+  
+`;
 
 const Ul = styled.ul`
 
   --border-style: 1px solid rgba(255, 255, 255, .8);
-
-  
 
 
   list-style: none;
   max-width: 640px;
   padding: 10px;
   padding-left: 50px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
 
   & > li{
 
@@ -213,28 +234,31 @@ export default function Dashboard() {
       <div>
         {
           newStage && newStage.length && newStage.map(ns => (
-            <Ul key={ns.stage}>
-              {
-                ns && ns.bookCnt && Array.from({ length: ns.bookCnt }, (_, i) => i + 1).map((_, idx) => {
-                  const stageIdx = ns.totalCnt - idx;
-                  const userList = ns && ns.list && ns.list.filter(ns2 => ns2.bookCnt == stageIdx);
-                  return (
-                    <li key={idx}>
-                      <div>
-                        <strong className={userList.length ? 'target-stage' : ''}>{ userList.length ? stageIdx : stageIdx }</strong>
-                        <ul>
-                          {
-                            userList.map(ns3 => (
-                              <li key={ns3.id}>{ns3.name}</li>
-                            )) 
-                          }
-                        </ul>
-                      </div>
-                    </li>
-                  );
-                })
-              }
-            </Ul>
+            <div key={ns.stage}>
+              <H2>Stage. {ns.stage}</H2>
+              <Ul>
+                {
+                  ns && ns.bookCnt && Array.from({ length: ns.bookCnt }, (_, i) => i + 1).map((_, idx) => {
+                    const stageIdx = ns.totalCnt - idx;
+                    const userList = ns && ns.list && ns.list.filter(ns2 => ns2.bookCnt == stageIdx);
+                    return (
+                      <li key={idx}>
+                        <div>
+                          <strong className={userList.length ? 'target-stage' : ''}>{ userList.length ? stageIdx : stageIdx }</strong>
+                          <ul>
+                            {
+                              userList.map(ns3 => (
+                                <li key={ns3.id}>{ns3.name}</li>
+                              )) 
+                            }
+                          </ul>
+                        </div>
+                      </li>
+                    );
+                  })
+                }
+              </Ul>
+            </div>
           )
         )
         }
