@@ -16,42 +16,48 @@ import { getStageInfo } from '@/api/stage';
 
 
 const Main = styled.main`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  height: 100%;
   min-width: 280px;
   z-index: 1;
   display: flex;
   flex-direction: column;
-
+  
   & > div{
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, .5);
     padding-top: 50px;
     flex: 1;
     overflow-y: auto;
-    background: linear-gradient(to bottom, midnightblue, #000);
+    background: linear-gradient(to bottom, #000, midnightblue);
   }
 `;
 
 const H2 = styled.h2`
-  margin: 0 auto 10px;
+  max-width: 640px;
+  width: 100%;
   color: #fff;
   font-size: 20px;
   position: sticky;
   top: 0;
-  left: 25px;
-  background: #fff;
-  border-radius: 100px;
-  color: midnightblue;
-  padding: 5px 10px;
-  vertical-align: top;;
+  color: #000;
+  vertical-align: top;
   z-index: 2;
-  display: inline-block;
-  border: 1px solid midnightblue;
-  box-shadow: 0 0 8px #fff;
-  left: 50%;
-  transform: translateX(-100px);
+  margin: 0 auto 10px;
+  padding-left: 20px;
+  
+  strong{
+    border: 1px solid 000;
+    box-shadow: 0 0 8px #fff;
+    background: #fff;
+    border-radius: 100px;
+    padding: 5px 10px;
+    vertical-align: top;
+  }
   
 `;
 
@@ -107,6 +113,7 @@ const Ul = styled.ul`
 
       ul{
         color: #fff;
+        list-style: disc;
       }
     }
 
@@ -119,14 +126,14 @@ const Label = styled.label`
   bottom: 10px;
   right: 10px;
   cursor: pointer;
-  height: 50px;
-  width: 120px;
-  paddding: 5px;
-  border-radius: 50px;
+  height: 40px;
+  width: 100px;
+  border-radius: 40px;
   background: #fff;
   overflow: hidden;
   z-index: 2;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+  box-shadow: 0 1px 4px rgba(255, 255, 255, .9);
+
 
   input{
     display: none;
@@ -136,7 +143,7 @@ const Label = styled.label`
     transform: translateX(-60px);
   }
   input + b{
-    width: 180px;
+    width: 160px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -144,9 +151,10 @@ const Label = styled.label`
 
 
     i{
-      width: 40px;
-      height: 40px;
-      background: green;
+      width: 36px;
+      height: 36px;
+      background: midnightblue;
+      box-shadow: inset 0 0 8px rgba(255, 255, 255, 1);
       border-radius: 50%;
     }
     span{
@@ -154,15 +162,14 @@ const Label = styled.label`
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      width: 70px;
+      width: 62px;
       height: 100%;
-      background: red;
 
       &:first-of-type{
-        background: linear-gradient(to right, green, #fff);
+        background: linear-gradient(to right, gray, #fff);
       }
       &:last-of-type{
-        background: linear-gradient(to left, green, #fff);
+        background: linear-gradient(to left, gray, #fff);
 
       }
     }
@@ -235,7 +242,7 @@ export default function Dashboard() {
         {
           newStage && newStage.length && newStage.map(ns => (
             <div key={ns.stage}>
-              <H2>Stage. {ns.stage}</H2>
+              <H2><strong>Stage. {ns.stage}</strong></H2>
               <Ul>
                 {
                   ns && ns.bookCnt && Array.from({ length: ns.bookCnt }, (_, i) => i + 1).map((_, idx) => {
@@ -259,71 +266,16 @@ export default function Dashboard() {
                 }
               </Ul>
             </div>
-          )
-        )
+          ))
         }
         
-        {/* <Ul>
-          <li>
-            <div>
-              <strong></strong>
-              <ul>
-                <li>원대로1</li>
-                <li>원대로2</li>
-                <li>원대로3</li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong></strong>
-              <ul>
-                <li>원대로1</li>
-                <li>원대로2</li>
-                <li>원대로3</li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong></strong>
-              <ul>
-                <li>원대로1</li>
-                <li>원대로1</li>
-                <li>원대로1</li>
-                <li>원대로1</li>
-                <li>원대로1</li>
-                <li>원대로1</li>
-                <li>원대로2</li>
-                <li>원대로3</li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong></strong>
-              <ul>
-                <li>원대로1</li>
-                <li>원대로2</li>
-                <li>원대로3</li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong></strong>
-              <ul>
-              </ul>
-            </div>
-          </li>
-        </Ul> */}
       </div>
       <Label>
         <input type="checkbox" />
         <b>
-          <span>시각화</span>
+          <span>Stage</span>
           <i></i>
-          <span>리스트화</span>
+          <span>List</span>
         </b>
       </Label>
     </Main>
