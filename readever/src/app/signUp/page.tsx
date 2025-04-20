@@ -148,7 +148,7 @@ const Main = styled.main`
 
 
 
-export default function signUp() {
+export default function SignUp() {
   return (
     <Main>
       <Header/>

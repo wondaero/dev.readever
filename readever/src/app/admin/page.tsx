@@ -82,7 +82,7 @@ const Main = styled.main`
 
 
 
-export default function admin() {
+export default function Admin() {
   return (
     <Main>
       <Header/>

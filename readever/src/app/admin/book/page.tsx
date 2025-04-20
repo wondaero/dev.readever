@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import Header from '@/components/Header';
-import Input from '@/components/atoms/Input1';
+import AdminTab from '@/components/AdminTab';
 import Link from "next/link";
 
 import { useState } from 'react';
@@ -27,33 +27,6 @@ const Main = styled.main`
     overflow-y: auto;
     background: linear-gradient(to bottom, #fff, #ccc);
 
-    .tab{
-      display: flex;
-      align-items: center;
-      list-style: none;
-      border-bottom: 1px solid #888;
-      margin: 0;
-      padding: 0;
-      margin-bottom: 20px;
-
-      li{
-        position: relative;
-        top: 1px;
-        display: flex;
-        
-        a{
-          padding: 10px 20px;
-          border: 1px solid transparent;
-        }
-        
-        &.on a{
-          border-radius: 10px 10px 0 0;
-          border: 1px solid #888;
-          background: #fff;
-          border-bottom: 1px solid #fff;
-        }
-      }
-    }
   }
 `;
 
@@ -66,18 +39,7 @@ export default function adminBook() {
     <Main>
       <Header/>
       <div>
-        <ul className="tab">
-          <li>
-            <Link href="/admin/user">회원</Link>
-          </li>
-          <li className="on">
-            <Link href="/admin/book">지정도서</Link>
-          </li>
-          <li>
-            <Link href="/admin/mission">미션</Link>
-          </li>
-        </ul>
-        
+        <AdminTab active="book"></AdminTab>
       </div>
     </Main>
   );

@@ -254,7 +254,7 @@ export default function Dashboard() {
                           <strong className={userList.length ? 'target-stage' : ''}>{ userList.length ? stageIdx : stageIdx }</strong>
                           <ul>
                             {
-                              userList.map(ns3 => (
+                              Array.isArray(userList) && userList.map(ns3 => (
                                 <li key={ns3.id}>{ns3.name}</li>
                               )) 
                             }

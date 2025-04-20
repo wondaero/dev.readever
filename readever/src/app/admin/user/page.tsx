@@ -2,7 +2,8 @@
 
 import styled from 'styled-components';
 import Header from '@/components/Header';
-import Input from '@/components/atoms/Input1';
+import AdminTab from '@/components/AdminTab';
+import Input1WithTitle from '@/components//Input1WithTitle';
 import Link from "next/link";
 
 import { useState } from 'react';
@@ -27,33 +28,44 @@ const Main = styled.main`
     overflow-y: auto;
     background: linear-gradient(to bottom, #fff, #ccc);
 
-    .tab{
-      display: flex;
-      align-items: center;
-      list-style: none;
-      border-bottom: 1px solid #888;
-      margin: 0;
-      padding: 0;
-      margin-bottom: 20px;
+    .wrapper{
+      margin-top: 20px;
 
-      li{
-        position: relative;
-        top: 1px;
-        display: flex;
-        
-        a{
-          padding: 10px 20px;
-          border: 1px solid transparent;
+      .search-field{
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+
+        label{
+          margin-bottom: 10px;
+          strong{
+            width: 60px;
+            vertical-align: middle;
+          }
+          input{
+            max-width: 320px;
+          }
         }
-        
-        &.on a{
-          border-radius: 10px 10px 0 0;
-          border: 1px solid #888;
-          background: #fff;
-          border-bottom: 1px solid #fff;
+
+        button{
+          border: 0;
+          background: indigo;
+          display: flex;
+          max-width: 380px;
+          width: 100%;
+          height: 40px;
+          color: #fff;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          border-radius: 5px;
         }
       }
+
     }
+
   }
 `;
 
@@ -66,18 +78,16 @@ export default function adminUser() {
     <Main>
       <Header/>
       <div>
-        <ul className="tab">
-          <li className="on">
-            <Link href="/admin/user">회원</Link>
-          </li>
-          <li>
-            <Link href="/admin/book">지정도서</Link>
-          </li>
-          <li>
-            <Link href="/admin/mission">미션</Link>
-          </li>
-        </ul>
-        
+        <AdminTab active="user"></AdminTab>
+        <div className="wrapper">
+          <div className="search-field">
+            <Input1WithTitle title="이름" type="search"></Input1WithTitle>
+            <Input1WithTitle title="연락처" type="search"></Input1WithTitle>
+            <Input1WithTitle title="아이디" type="search"></Input1WithTitle>
+            <button>검색</button>
+          </div>
+        </div>
+
       </div>
     </Main>
   );
