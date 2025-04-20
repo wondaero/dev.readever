@@ -22,11 +22,6 @@ const Main = styled.main`
     flex: 1;
     overflow-y: auto;
     background: linear-gradient(to bottom, #fff, #ccc);
-    
-    @media(max-width: 480px){
-      padding: 10px;
-
-    }
 
     .wrapper{
       margin-top: 20px;
@@ -73,20 +68,12 @@ const Main = styled.main`
 
 
 
-export default function adminUser() {
+export default function AdminRead() {
   return (
     <Main>
       <Header/>
       <div>
-        <AdminTab active="user"></AdminTab>
-        <div className="wrapper">
-          <div className="search-field">
-            <Input1WithTitle title="이름" type="search"></Input1WithTitle>
-            <Input1WithTitle title="연락처" type="search"></Input1WithTitle>
-            <Input1WithTitle title="아이디" type="search"></Input1WithTitle>
-            <button>검색</button>
-          </div>
-        </div>
+        <AdminTab active="read"></AdminTab>
 
       </div>
     </Main>

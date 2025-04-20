@@ -4,15 +4,9 @@ import styled from 'styled-components';
 import Header from '@/components/Header';
 import Input from '@/components/atoms/Input1';
 import Input1WithTitle from '@/components//Input1WithTitle';
-import Link from "next/link";
 
 
 const Main = styled.main`
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // bottom: 0;
   height: 100%;
   min-width: 280px;
   z-index: 1;
@@ -103,7 +97,7 @@ const Main = styled.main`
               justify-content: center;
               border: 0;
               margin-left: 5px;
-              padding: 10px 15px;
+              padding: 5px 10px;
               font-size: 14px;
               cursor: pointer;
             }
@@ -160,7 +154,7 @@ export default function SignUp() {
               <div>
                 <strong>
                   <span>아이디</span>
-                  <button>아이디 중복 확인</button>
+                  <button>중복 확인</button>
                 </strong>
                 <Input type="text" placeholder="아이디를 입력해주세요." />
                 <p>6 ~ 20자 이내</p>
@@ -190,7 +184,7 @@ export default function SignUp() {
             />
             <Input1WithTitle
               title="연락처"
-              type="number"
+              type="tel"
               placeholder="연락처를 입력해주세요."
               tip="'-' 제외"
             />

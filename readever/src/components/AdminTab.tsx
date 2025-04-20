@@ -7,32 +7,33 @@ interface TabProps {
   active: string;
 }
 
-
-const Tab = styled.div`
+const Tab = styled.ul`
   border-bottom: 1px solid #888;
   list-style: none;
   margin: 0;
   padding: 0;
   min-width: 100%;
   width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  border-bottom: 1px solid #888;
 
   li{
     display: inline-flex;
     vertical-align: top;
-    position: relative;
-    top: 1px;
     align-items: center;
     
     a{
-      padding: 10px 20px;
+      padding: 10px 20px 6px;
       border: 1px solid transparent;
+      border-bottom: 4px solid transparent;
     }
     
     &.on a{
       border-radius: 10px 10px 0 0;
       border: 1px solid #888;
       background: #fff;
-      border-bottom: 1px solid #fff;
+      border-bottom: 4px solid indigo;
     }
   }
 `;
@@ -42,6 +43,9 @@ const Tab = styled.div`
 export default function AdminTab({active}): TabProps{
   return (
     <Tab>
+      <li className={active === 'read' ? 'on' : ''}>
+        <Link href="/admin/read">읽음처리</Link>
+      </li>
       <li className={active === 'user' ? 'on' : ''}>
         <Link href="/admin/user">회원</Link>
       </li>

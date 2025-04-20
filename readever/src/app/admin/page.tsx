@@ -91,6 +91,9 @@ export default function Admin() {
           <h2><strong>관리</strong></h2>
           <ul>
             <li>
+              <Link href="/admin/read">읽음처리</Link>
+            </li>
+            <li>
               <Link href="/admin/user">회원</Link>
             </li>
             <li>
