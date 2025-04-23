@@ -24,16 +24,18 @@ const Tab = styled.ul`
     align-items: center;
     
     a{
-      padding: 10px 20px 6px;
+      padding: 6px 20px;
       border: 1px solid transparent;
-      border-bottom: 4px solid transparent;
+      border-top: 4px solid transparent;
+      border-bottom: 0;
     }
     
     &.on a{
       border-radius: 10px 10px 0 0;
       border: 1px solid #888;
       background: #fff;
-      border-bottom: 4px solid indigo;
+      border-top: 4px solid indigo;
+      border-bottom: 0;
     }
   }
 `;
