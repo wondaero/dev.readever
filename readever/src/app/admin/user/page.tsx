@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import Header from '@/components/Header';
 import AdminTab from '@/components/AdminTab';
-import Input1WithTitle from '@/components//Input1WithTitle';
+import Input1WithTitle from '@/components/Input1WithTitle';
 import Link from "next/link";
 
 import { useState, useMemo, useEffect, useRef } from 'react';
@@ -108,6 +108,7 @@ const Main = styled.main`
         table{
           table-layout: fixed;
           min-width: 960px;
+          width: 100%;
           border-collapse: collapse;
           border-top: 1px solid #888;
           border-bottom: 1px solid #888;
@@ -171,9 +172,16 @@ const Main = styled.main`
               &:hover{
                 color: #fff;
                 background: indigo;
+                a{
+                  color: #fff;
+                }
               }
               td{
                 padding: 8px 0;
+                a{
+                  color: indigo;
+                }
+
               }
             }
           }
@@ -326,13 +334,15 @@ export default function adminUser() {
                           <span></span>
                           </label>
                         </td>
-                      <td className="txt-c">{ idx }</td>                  
-                      <td className="txt-c">{ u.name }</td>                  
-                      <td className="txt-c">{ u.id }</td>                  
-                      <td className="txt-c">{ u.phone }</td>                  
-                      <td className="txt-c">{ u.bookCnt }</td>                  
-                      <td className="txt-c">일반유저</td>                  
-                      <td className="txt-c">{ u.regDt }</td>                  
+                      <td className="txt-c">{ idx }</td>
+                      <td className="txt-c">
+                        <Link href={`/admin/user/${u.id}`}>{u.name}</Link>
+                      </td>
+                      <td className="txt-c">{ u.id }</td>
+                      <td className="txt-c">{ u.phone }</td>
+                      <td className="txt-c">{ u.bookCnt }</td>
+                      <td className="txt-c">일반유저</td>
+                      <td className="txt-c">{ u.regDt }</td>
                     </tr>
                   ))}
 

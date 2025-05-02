@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import Header from '@/components/Header';
 import AdminTab from '@/components/AdminTab';
-import Input1WithTitle from '@/components//Input1WithTitle';
+import Input1WithTitle from '@/components/Input1WithTitle';
 import Link from "next/link";
 
 import { useState } from 'react';

@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import Header from '@/components/Header';
 import Input from '@/components/atoms/Input1';
-import Input1WithTitle from '@/components//Input1WithTitle';
+import Input1WithTitle from '@/components/Input1WithTitle';
 
 
 const Main = styled.main`

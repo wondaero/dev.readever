@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import Header from '@/components/Header';
 import Input from '@/components/atoms/Input1';
-import Input1WithTitle from '@/components//Input1WithTitle';
+import Input1WithTitle from '@/components/Input1WithTitle';
 
 
 const Main = styled.main`
@@ -87,6 +87,10 @@ const Main = styled.main`
             align-items: center;
             vertical-align: top;
             margin-bottom: 10px;
+            
+            span{
+              width: 60px;
+            }
 
             button{
               background: indigo;
@@ -109,6 +113,31 @@ const Main = styled.main`
             margin: 2px 0 0;
             font-size: 12px;
             padding-left: 4px;
+          }
+        }
+
+        .password-field{
+          strong{
+            display: inline-flex;
+            align-items: center;
+            vertical-align: top;
+
+            span{
+              width: 60px;
+            }
+          }
+          button{
+            background: indianred;
+            color: #fff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            margin-left: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
           }
         }
       }
@@ -142,13 +171,13 @@ const Main = styled.main`
 
 
 
-export default function SignUp() {
+export default function adminUserDetail() {
   return (
     <Main>
       <Header/>
       <div>
         <div className="wrapper">
-          <h2><strong>회원가입</strong></h2>
+          <h2><strong>회원상세</strong></h2>
           <div className="part-wrapper">
             <div className="id-input">
               <div>
@@ -160,16 +189,14 @@ export default function SignUp() {
                 <p>6 ~ 20자 이내</p>
               </div>
             </div>
-            <Input1WithTitle
-              title="비밀번호"
-              type="password"
-              placeholder="비밀번호를 입력해주세요."
-            />
-            <Input1WithTitle
-              title="비밀번호 확인"
-              type="password"
-              placeholder="위와 동일한 비밀번호를 입력해주세요."
-            />
+            <div className="password-field">
+              <div>
+                <strong>
+                  <span>비밀번호</span>
+                  <button>비밀번호 초기화</button>
+                </strong>
+              </div>
+            </div>
           </div>
           <div className="part-wrapper">
             <Input1WithTitle
@@ -189,7 +216,7 @@ export default function SignUp() {
               tip="'-' 제외"
             />
           </div>
-          <button className="sign-up-btn">가입</button>
+          <button className="sign-up-btn">수정</button>
         </div>
         
       </div>

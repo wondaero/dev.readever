@@ -34,6 +34,7 @@ const Main = styled.main`
     flex: 1;
     overflow-y: auto;
     background: linear-gradient(to bottom, #000, midnightblue);
+    background: linear-gradient(#fff, #98c28d);
   }
 `;
 
