@@ -1,0 +1,30 @@
+[
+    {
+        "stage": 1,
+        "bookCnt": 10
+    },
+    {
+        "stage": 2,
+        "bookCnt": 20
+    },
+    {
+        "stage": 3,
+        "bookCnt": 30
+    },
+    {
+        "stage": 4,
+        "bookCnt": 40
+    },
+    {
+        "stage": 5,
+        "bookCnt": 50
+    },
+    {
+        "stage": 6,
+        "bookCnt": 80
+    },
+    {
+        "stage": 7,
+        "bookCnt": 100
+    }
+]
