@@ -277,6 +277,21 @@ export default function AdminStage() {
     );
   }
 
+  const addStage = () => {
+    setItems((prev) => {
+      return [
+        { id: 'aaa', content: "아이템 1", isDragEnabled: false },
+        ...prev
+      ];
+    });
+    
+  }
+  const delStage = (id: string) => {
+    setItems((items) =>
+      items.filter((item) => item.id !== id)
+    );
+  }
+
   
 
   return (
@@ -290,7 +305,7 @@ export default function AdminStage() {
             <div className="list-top">
               <strong>총 <span>10</span> Stage</strong>
               <div>
-                <button>추가</button>
+                <button onClick={addStage}>추가</button>
               </div>
             </div>
             <div className="table-wrapper">
