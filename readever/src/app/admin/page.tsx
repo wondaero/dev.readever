@@ -100,7 +100,7 @@ export default function Admin() {
               <Link href="/admin/book">지정도서</Link>
             </li>
             <li>
-              <Link href="/admin/mission">미션</Link>
+              <Link href="/admin/stage">미션</Link>
             </li>
           </ul>
         </div>

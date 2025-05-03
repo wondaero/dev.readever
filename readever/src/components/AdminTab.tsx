@@ -54,8 +54,8 @@ export default function AdminTab({active}): TabProps{
       <li className={active === 'book' ? 'on' : ''}>
         <Link href="/admin/book">지정도서</Link>
       </li>
-      <li className={active === 'mission' ? 'on' : ''}>
-        <Link href="/admin/mission">미션</Link>
+      <li className={active === 'stage' ? 'on' : ''}>
+        <Link href="/admin/stage">미션</Link>
       </li>
     </Tab>
   );

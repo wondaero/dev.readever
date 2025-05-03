@@ -195,15 +195,19 @@ const Main = styled.main`
 // function SortableItem({ id, content }: { id: string; content: string }) {
   const SortableItem = ({ id, content }: { id: string; content: string }) => {
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+    
   
     const style = {
       transform: CSS.Transform.toString(transform),
       transition,
       userSelect: "none",
     };
+
+    const { ['aria-describedby']: _removed, ...filteredAttributes } = attributes;
+
   
     return (
-      <tr ref={setNodeRef} style={style} {...attributes}>
+      <tr ref={setNodeRef} style={style} {...filteredAttributes}>
         <td className="txt-c">Stage.{id}</td>
         <td>
           <input type="number" className="txt-r" value={content} onChange={() => {}} />
@@ -218,7 +222,7 @@ const Main = styled.main`
   };
   
 
-export default function AdminMission() {
+export default function AdminStage() {
   const {
     data: stageInfo,
     isLoading: isLoadingStageInfo,
@@ -273,20 +277,35 @@ export default function AdminMission() {
     );
   }
 
+  const addStage = () => {
+    setItems((prev) => {
+      return [
+        { id: 'aaa', content: "아이템 1", isDragEnabled: false },
+        ...prev
+      ];
+    });
+    
+  }
+  const delStage = (id: string) => {
+    setItems((items) =>
+      items.filter((item) => item.id !== id)
+    );
+  }
+
   
 
   return (
     <Main>
       <Header />
       <div>
-        <AdminTab active="mission" />
+        <AdminTab active="stage" />
 
         <div className="wrapper">
           <div className="list-field">
             <div className="list-top">
               <strong>총 <span>10</span> Stage</strong>
               <div>
-                <button>추가</button>
+                <button onClick={addStage}>추가</button>
               </div>
             </div>
             <div className="table-wrapper">
@@ -297,7 +316,7 @@ export default function AdminMission() {
                       <col width="100" />
                       <col width="100" />
                       <col />
-                      <col width="130" />
+                      <col width="122" />
                     </colgroup>
                     <thead>
                       <tr>
