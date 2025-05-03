@@ -279,6 +279,7 @@ export default function AdminStage() {
 
   const addStage = () => {
     setItems((prev) => {
+      console.log(prev[0].id);
       return [
         { id: 'aaa', content: "아이템 1", isDragEnabled: false },
         ...prev
