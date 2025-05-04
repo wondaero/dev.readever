@@ -322,7 +322,7 @@ export default function AdminStage() {
                     <thead>
                       <tr>
                         <th>스테이지</th>
-                        <th>독서량</th>
+                        <th>미션</th>
                         <th>메모</th>
                         <th></th>
                       </tr>
