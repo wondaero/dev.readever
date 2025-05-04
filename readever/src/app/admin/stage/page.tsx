@@ -279,8 +279,9 @@ export default function AdminStage() {
 
   const addStage = () => {
     setItems((prev) => {
+      console.log(prev[0].id);
       return [
-        { id: 'aaa', content: "아이템 1", isDragEnabled: false },
+        { id: (+(prev[0].id) + 1), content: "아이템 1", isDragEnabled: false },
         ...prev
       ];
     });
@@ -321,7 +322,7 @@ export default function AdminStage() {
                     <thead>
                       <tr>
                         <th>스테이지</th>
-                        <th>독서량</th>
+                        <th>미션</th>
                         <th>메모</th>
                         <th></th>
                       </tr>
